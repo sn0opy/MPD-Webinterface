@@ -1,5 +1,12 @@
 <? if($status != 'stopped') { ?>
-<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<?=CURRENTTIME?>/<?=CURRENTLENGTH?>)</p>
+<script type="text/javascript">
+	var min = <?=date('i',$times[0])?>;
+	var sec = <?=date('s',$times[0])?>;
+	function zeropad(n, digits) { n = n.toString(); while (n.length < digits) { n = '0' + n; } return n; }
+	function cnt() { sec++; if(sec > 59) { min++; sec = 0; } document.getElementById('time').innerHTML = zeropad(min,2) + ":" + zeropad(sec,2); }
+	window.setInterval(cnt, 1000);
+</script>
+<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"></SPAN>/<?=CURRENTLENGTH?>)</p>
 <? } ?>
 
 <div class="playlist">

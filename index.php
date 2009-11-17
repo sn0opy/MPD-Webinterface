@@ -26,7 +26,7 @@ if($mpd->connected == FALSE) {
 	define('CURRENTTIME', date('i:s', $times[0]));
 
 	// fucking dirty
-	echo '<script type="text/javascript">setTimeout("location.reload(true);", ' .((($times[1]-$times[0])*1000)+3000). ');</script>'."\n";
+	echo '<script type="text/javascript">setTimeout("location.reload(true);", ' .((($times[1]-$times[0])*1000)+500). ');</script>'."\n";
 
 	if(isset($_POST['toadd'])) {
 		$object = $_POST['toadd'];
