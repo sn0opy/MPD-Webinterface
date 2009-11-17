@@ -7,7 +7,6 @@
 	<title>MPD Webinterface</title>	
 
 	<link rel="stylesheet" type="text/css" href="media/style.css" />
-	<link href="http://somegas.de/wordpress/favicon.ico" rel="shortcut icon" type="image/x-icon" />	
 </head>
 <body>
 
