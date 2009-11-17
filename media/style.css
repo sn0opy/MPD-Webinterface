@@ -8,6 +8,10 @@ body, input {
 	font: 10px "Lucida Grande", "Lucida Sans Unicode", verdana, geneva, sans-serif;
 }
 
+a img { 
+	border: 0px;
+}
+
 .playlist {
 	margin-bottom: 10px;
 }
