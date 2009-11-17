@@ -1,7 +1,6 @@
 <?
 
 include 'inc/mpd.class.php';
-include 'inc/functions.inc.php';
 
 $mpd = new mpd('localhost',6600);
 $mpd->debugging = false;
@@ -12,10 +11,18 @@ define('CURRENTID', $mpd->playlist[$mpd->current_track_id]['Id']);
 
 include 'tpl/header.tpl.php';
 
-
 if($mpd->connected == FALSE) {
     	echo "Error: " .$mpd->errStr;
 } else {
+	$statusrow = explode("\n", $mpd->SendCommand('status'));
+	
+	foreach($statusrow as $row) {
+		$get = explode(': ', $row);
+		$status[$get[0]] = $get[1];
+	}
+
+
+
 	if(isset($_POST['toadd'])) {
 		$object = $_POST['toadd'];
 
