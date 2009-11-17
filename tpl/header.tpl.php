@@ -17,14 +17,14 @@
 	</div>
 	<div class="navi">
 		<ul>
-			<li><a href="?a=prev"><img src="media/icons/control_rewind.png" alt="" /></a></li>
+			<li><a href="?a=prev"><img src="media/icons/control_rewind.png" alt="Previous" /></a></li>
 			<? if($mpd->state == 'pause' || $mpd->state == 'stop') { ?>
-			<li><a href="?a=play"><img src="media/icons/control_play.png" alt="" /></a></li>
+			<li><a href="?a=play"><img src="media/icons/control_play.png" alt="Play" /></a></li>
 			<? } else { ?>
-			<li><a href="?a=pause"><img src="media/icons/control_pause.png" alt="" /></a></li>
+			<li><a href="?a=pause"><img src="media/icons/control_pause.png" alt="Pause" /></a></li>
 			<? } ?>
-			<li><a href="?a=stop"><img src="media/icons/control_stop.png" alt="" /></a></li>
-			<li><a href="?a=next"><img src="media/icons/control_fastforward.png" alt="" /></a></li>
+			<li><a href="?a=stop"><img src="media/icons/control_stop.png" alt="Stop" /></a></li>
+			<li><a href="?a=next"><img src="media/icons/control_fastforward.png" alt="Fastforward" /></a></li>
 		</ul>
 	</div>
 
