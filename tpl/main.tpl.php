@@ -1,5 +1,5 @@
 <? if($status != 'stopped') { ?>
-<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?></p>
+<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<?=CURRENTTIME?>/<?=CURRENTLENGTH?>)</p>
 <? } ?>
 
 <div class="playlist">
@@ -12,7 +12,7 @@
 				x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
 			</a>
 			<a href="?a=start&amp;id=<?=$song['Id']?>" name="current">
-				<?=$song['Artist']?> - <?=$song['Title']?> 
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span> 
 			</a>
 		</p>
 
@@ -27,7 +27,7 @@
                         </a>
 
 			<a href="?a=start&amp;id=<?=$song['Id']?>">
-				<?=$song['Artist']?> - <?=$song['Title']?>
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
 			</a>
 		</p>	
 
@@ -38,7 +38,7 @@
                                 x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
                         </a>
 			<a href="?a=start&amp;id=<?=$song['Id']?>">
-				<?=$song['Artist']?> - <?=$song['Title']?> 
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
 			</a>
 		</p>
 
