@@ -12,37 +12,27 @@ a img {
 	border: 0px;
 }
 
-.playlist {
-	margin-bottom: 10px;
-}
-
-.playlist a:link, a:visited {
+.playlist a {
 	color: #333;
 	text-decoration: none;
+	padding: 2px;
+	display: block;
 }
 
 .playlist a:hover {
 	background: #CCC;
 }
 
-.playlist p a {
-	padding: 2px;
-	display: block;
-}
-
-.playlist p a span {
-	display: none;
-	margin-top: -2px;
-}
-
-.playlist p a:hover span {
-	display: inline;
+.playlist a.removeid {
+	width: 30px;
 	float: right;
+	border: 0px;
+	background: transparent;
+	display: block;
+	text-align: center;
+	color: #999;
 }
 
-.playlist p a:hover span a {
-	background: transparent;
-}
 
 .current {
 	background: #EEE;
@@ -53,6 +43,11 @@ a img {
 	overflow: hidden;
 	overflow-y: scroll;
 	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.playlist p {
+	clear: both;
 }
 
 .container {
@@ -95,6 +90,15 @@ a img {
 
 .label {
 	color: #AAA;
+}
+
+.marker {
+	padding: 2px; 
+	float: left; 
+	display: block; 
+	width: 1px; 
+	background: #B3D9FF; 
+	margin-right:10px;
 }
 
 input {

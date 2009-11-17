@@ -6,11 +6,42 @@
 <? foreach($mpd->playlist as $song) { ?>
 	<? if($song['Artist'] != NULL && $song['Title'] != NULL) { ?>
 		<? if((CURRENTID-5) == $song['Id']) { ?> 
-		<p><a href="?a=start&amp;id=<?=$song['Id']?>" name="current"><?=$song['Artist']?> - <?=$song['Title']?> <span class="removeid"><a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song"><img src="media/icons/cross.png" alt="remove" /></a></span></a></p>
+
+		<p>
+			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
+				x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
+			</a>
+			<a href="?a=start&amp;id=<?=$song['Id']?>" name="current">
+				<?=$song['Artist']?> - <?=$song['Title']?> 
+			</a>
+		</p>
+
 		<? } elseif(CURRENTID == $song['Id']) { ?>
-		<span style="padding: 2px; float: left; display: block; width: 1px; background: #B3D9FF; margin-right:10px;">&nbsp;</span><p class="current"><a href="?a=start&amp;id=<?=$song['Id']?>" title="Album: <?=$song['Album']?>"><?=$song['Artist']?> - <?=$song['Title']?> <span class="removeid"><a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song"><img src="media/icons/cross.png" alt="remove" /></a></span></a></p>	
+
+		<p class="current">
+                	<span class="marker">
+				&nbsp;
+			</span>
+		        <a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
+                                x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
+                        </a>
+
+			<a href="?a=start&amp;id=<?=$song['Id']?>">
+				<?=$song['Artist']?> - <?=$song['Title']?>
+			</a>
+		</p>	
+
 		<? } else { ?>
-		<p><a href="?a=start&amp;id=<?=$song['Id']?>" title="Album: <?=$song['Album']?>"><?=$song['Artist']?> - <?=$song['Title']?> <span class="removeid"><a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song"><img src="media/icons/cross.png" alt="remove" /></a></span></a></p>
+
+		<p>
+			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
+                                x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
+                        </a>
+			<a href="?a=start&amp;id=<?=$song['Id']?>">
+				<?=$song['Artist']?> - <?=$song['Title']?> 
+			</a>
+		</p>
+
 		<? } ?>
 	<? } ?>
 <? } ?>
