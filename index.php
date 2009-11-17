@@ -18,6 +18,7 @@ if($mpd->connected == FALSE) {
 } else {
 	if(isset($_POST['toadd'])) {
 		$object = $_POST['toadd'];
+
 		$files = explode("\n", $mpd->SendCommand('lsinfo'));
 
 		foreach($files as $row) {
@@ -42,8 +43,8 @@ if($mpd->connected == FALSE) {
 				break;
 			}
 		}
-	
-		header('Location: ./');
+		$mpd->SendCommand('update');	
+		header('Location: ./#current');
 	}
 	
 	switch($_GET['a']) {
