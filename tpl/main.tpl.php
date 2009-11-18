@@ -1,4 +1,5 @@
 <? if($status != 'stopped') { ?>
+<? if($status != 'paused') { ?>
 <script type="text/javascript">
 	var min = <?=date('i',$times[0])?>;
 	var sec = <?=date('s',$times[0])?>;
@@ -6,7 +7,8 @@
 	function cnt() { sec++; if(sec > 59) { min++; sec = 0; } document.getElementById('time').innerHTML = zeropad(min,2) + ":" + zeropad(sec,2); }
 	window.setInterval(cnt, 1000);
 </script>
-<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"></SPAN>/<?=CURRENTLENGTH?>)</p>
+<? } ?>
+<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"><? if($status == 'paused') { echo CURRENTTIME; } ?></span><noscript><?=CURRENTTIME?></noscript>/<?=CURRENTLENGTH?>)</p>
 <? } ?>
 
 <div class="playlist">
