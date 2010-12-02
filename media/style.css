@@ -23,12 +23,22 @@ a img {
 	background: #CCC;
 }
 
+.songLine:hover .removeid {
+	display: block;
+}
+
+.volinput {
+	width: 40px;
+	text-align: center;
+	line-height: 10px;
+}
+
 .playlist a.removeid {
 	width: 30px;
 	float: right;
 	border: 0px;
 	background: transparent;
-	display: block;
+	display: none;
 	text-align: center;
 	color: #999;
 }
@@ -101,8 +111,22 @@ a img {
 	margin-right:10px;
 }
 
+.bottombar a {
+	color: #333;
+	text-decoration: none;
+}
+
+.bottombar a:hover {
+	text-decoration: underline;
+}
+
 input {
 	border: 1px solid lightgray;
 	color: #999;
 	padding: 2px;
+}
+
+.ajaxOutput * {
+	margin-right: 30px;
+	display: none;
 }

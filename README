@@ -1,17 +1,24 @@
 ##	mpd webinterface 
-##	von Sascha Ohms
+##	  Sascha Ohms
 
-Minimales Webinterface zum Verwalten von mpd.
+Minimal webinterface for music player daemon
 
--- Funktionen:
-- Play, Pause, Next, Prev, Stop Song
-- Ordner, Song/s hinzufuegen
-- einzelne Songs aus Playlist loeschen
-- gesamte Playlist loeschen
+-- Features:
+- Play, Pause, Next, Prev, Stop, Vol up, Vol down
+- add single songs or dirs
+- remove single songs from playlist
+- delete whole playlist
+- mostly ajaxed (will work on it later)
 
--- Anforderungen:
+-- Requirements:
 - mpd 0.10.0+
-- php (kein Plan welche Version)
+- webserver with php
+
+-- Install:
+- copy all files into your htdocs 
+- modify the first lines of index.php to fit your configuration
+- open it in browser, you're done 
 
 -- Thx:
 - mpd.class.php -> http://mpd.24oz.com
+- famfamfam.com -> Icons (most of them)

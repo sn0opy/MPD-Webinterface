@@ -1,9 +1,19 @@
-<?
+<?php
 
-include 'inc/mpd.class.php';
+/* Settings */
+$mpdServer = 'localhost';
+$mpdPort = '6600';
+$mpdPassword = NULL;
+$volDownSteps = -10;
+$volUpSteps = 10;
 
-$mpd = new mpd('localhost',6600);
-$mpd->debugging = false;
+
+/* Do not change */
+ob_start();
+
+include 'inc/mpd.class.php'; // loading the main class
+
+$mpd = new mpd($mpdServer, $mpdPort, $mpdPassword);
 
 define('CURRENTARTIST', $mpd->playlist[$mpd->current_track_id]['Artist']);
 define('CURRENTTRACK', $mpd->playlist[$mpd->current_track_id]['Title']);
@@ -61,53 +71,44 @@ if($mpd->connected == FALSE) {
 	}
 	
 	switch($_GET['a']) {
+		case 'volup':
+			$mpd->AdjustVolume($volUpSteps); break;
+		case 'voldown':
+			$mpd->AdjustVolume($volDownSteps); break;
 		case 'play':
-			$mpd->Play();
-			header('Location: ./#current');
-			break;
+			$mpd->Play(); header('Location: ./#current'); break;
 		case 'pause':
-			$mpd->Pause();
-			header('Location: ./#current');
-			break;
+			$mpd->Pause(); header('Location: ./#current'); break;
 		case 'prev':
-			$mpd->Previous();
-			header('Location: ./#current');
-			break;
+			$mpd->Previous(); header('Location: ./#current'); break;
 		case 'next':
-			$mpd->Next();
-			header('Location: ./#current');
-			break;
+			$mpd->Next(); header('Location: ./#current'); break;
 		case 'stop':
-			$mpd->Stop();
-			header('Location: ./#current');
-			break;
+			$mpd->Stop(); header('Location: ./#current'); break;
 		case 'start':
-			$songID = (int) $_GET['id'];
-			$mpd->SkipTo($songID);
-			header('Location: ./#current');
+			$songID = (int) $_GET['id']; 
+			$mpd->SkipTo($songID); 
+			header('Location: ./#current'); 
 			break;
 		case 'clearpl':
-			$mpd->PLClear();
-			header('Location: ./');
+			$mpd->PLClear(); 
+			header('Location: ./'); 
 			break;
 		case 'remove':
-			$songID = (int) $_GET['id'];
-			$mpd->SendCommand('deleteid', $songID);
-			$mpd->RefreshInfo();
-			header('Location: ./#current');
+			$songID = (int) $_GET['id']; 
+			$mpd->SendCommand('deleteid', $songID); 
+			$mpd->RefreshInfo(); 
+			header('Location: ./#current'); 
 			break;
 	}
 
 	switch($mpd->state) {
 		case 'play':
-			$status = 'playing';
-			break;
+			$status = 'playing'; break;
 		case 'pause':
-			$status = 'paused';
-			break;
+			$status = 'paused'; break;
 		default:
-			$status = 'stopped';
-			break;
+			$status = 'stopped'; break;
 	}
 
 	include 'tpl/main.tpl.php';

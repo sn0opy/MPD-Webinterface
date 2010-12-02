@@ -27,12 +27,12 @@
 
 		<? } elseif(CURRENTID == $song['Id']) { ?>
 
-		<p class="current">
+		<p class="current songLine">
                 	<span class="marker">
 				&nbsp;
 			</span>
 		        <a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
-                                x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
+                                x
                         </a>
 
 			<a href="?a=start&amp;id=<?=$song['Id']?>">
@@ -42,7 +42,7 @@
 
 		<? } else { ?>
 
-		<p>
+		<p class="songLine">
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
                                 x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
                         </a>
@@ -55,7 +55,17 @@
 	<? } ?>
 <? } ?>
 </div>
-<div style="float: right;">Status: <?=$status?> | Songs: <?=$mpd->playlist_count?></div>
+<div style="float: right;" class="bottombar">
+	<span class="ajaxOutput">
+		<span id="outVolup">Vol ++</span>
+		<span id="outVoldown">Vol --</span>
+		<span id="outNext">Next song</span>
+		<span id="outPrev">Previous song</span>
+		<span id="outPause">Paused</span>
+		<span id="outPlay">Play</span>
+	</span>
+	Status: <?if($status != 'stopped'): ?><a href="#current"><?=$status?></a><? else: echo $status; endif;?> | Songs: <?=$mpd->playlist_count?>
+</div>
 <div class="add">
 	<form action="./" method="post">
 		<input type="text" name="toadd" onclick="if(this.value=='Add dir or songs'){this.value='';}" onblur="if(this.value==''){this.value='Add dir or songs';}" value="Add dir or songs" /> <a href="?a=clearpl" title="Clear playlist"><img src="media/icons/table_row_delete.png" alt="Clear Playlist" /></a>
