@@ -20,7 +20,7 @@
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
 				x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
 			</a>
-			<a href="?a=start&amp;id=<?=$song['Id']?>" name="current">
+			<a href="?a=start&amp;id=<?=$song['Pos']?>" name="current">
 				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span> 
 			</a>
 		</p>
@@ -35,7 +35,7 @@
                                 x
                         </a>
 
-			<a href="?a=start&amp;id=<?=$song['Id']?>">
+			<a href="?a=start&amp;id=<?=$song['Pos']?>">
 				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
 			</a>
 		</p>	
@@ -46,7 +46,7 @@
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">
                                 x<!--<img src="media/icons/bullet_red.png" alt="remove" />-->
                         </a>
-			<a href="?a=start&amp;id=<?=$song['Id']?>">
+			<a href="?a=start&amp;id=<?=$song['Pos']?>">
 				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
 			</a>
 		</p>
@@ -64,7 +64,7 @@
 		<span id="outPause">Paused</span>
 		<span id="outPlay">Play</span>
 	</span>
-	Status: <?if($status != 'stopped'): ?><a href="#current"><?=$status?></a><? else: echo $status; endif;?> | Songs: <?=$mpd->playlist_count?>
+	Status: <?if($status != 'stopped'): ?><a href="#current"><?=$status?></a><? else: echo $status; endif;?> | Songs: <?=$mpd->playlist_count?> | Vol: <?=$mpd->volume?>%
 </div>
 <div class="add">
 	<form action="./" method="post">
