@@ -69,6 +69,9 @@ $(document).ready(function() {
 		$("#outVolup").fadeIn('slow', function() {
 			$("#outVolup").fadeOut('slow');
 		});
+		
+		var currentvol = parseInt($("#currentvol").text());
+		$("#currentvol").text(currentvol + VOLUPSTEPS);
 
 	});
 
@@ -81,5 +84,9 @@ $(document).ready(function() {
 		$("#outVoldown").fadeIn('slow', function() {
 			$("#outVoldown").fadeOut('slow');
 		});
+		
+		var currentvol = parseInt($("#currentvol").text());
+		$("#currentvol").text(currentvol - VOLDOWNSTEPS);
 	});
  });
+

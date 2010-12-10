@@ -6,6 +6,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>MPD Webinterface</title>	
 
+	<script type="text/javascript">
+		// some 'global' vars i have to store herere. Don't change anything
+		var VOLDOWNSTEPS = <?=$volDownSteps?>;
+		var VOLUPSTEPS = <?=$volUpSteps?>;
+	</script>
+	
 	<script type="text/javascript" src="media/jquery.js"></script>
 	<script type="text/javascript" src="media/mycode.js?<?=filemtime("media/mycode.js");?>"></script>
 	<link rel="stylesheet" type="text/css" href="media/style.css?<?=filemtime("media/style.css");?>" />
@@ -30,4 +36,5 @@
 			<li><a href="?a=next" id="next" title="Next"><img src="media/icons/control_fastforward.png" alt="Fastforward" /></a></li>
 		</ul>
 	</div>
+
 

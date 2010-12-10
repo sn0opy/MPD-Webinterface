@@ -1,17 +1,17 @@
 <?php
 
 /* Settings */
-$mpdServer = 'localhost';
+$mpdServer = '192.168.1.10';
 $mpdPort = '6600';
 $mpdPassword = NULL;
-$volDownSteps = -10;
+$volDownSteps = 10;
 $volUpSteps = 10;
 
 
 /* Do not change */
 ob_start();
 
-include 'inc/mpd.class.php'; // loading the main class
+include 'inc/mpd.class.php';
 
 $mpd = new mpd($mpdServer, $mpdPort, $mpdPassword);
 
@@ -74,7 +74,7 @@ if($mpd->connected == FALSE) {
 		case 'volup':
 			$mpd->AdjustVolume($volUpSteps); break;
 		case 'voldown':
-			$mpd->AdjustVolume($volDownSteps); break;
+			$mpd->AdjustVolume('-'.$volDownSteps); break;
 		case 'play':
 			$mpd->Play(); header('Location: ./#current'); break;
 		case 'pause':
@@ -117,3 +117,4 @@ if($mpd->connected == FALSE) {
 include 'tpl/footer.tpl.php';
 
 ?>
+
