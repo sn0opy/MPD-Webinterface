@@ -1,7 +1,7 @@
 <?php
 
 /* Settings */
-$mpdServer = 'localhost';
+$mpdServer = '192.168.1.11';
 $mpdPort = '6600';
 $mpdPassword = NULL;
 $volDownSteps = 10;
@@ -12,6 +12,7 @@ $volUpSteps = 10;
 ob_start();
 
 include 'inc/mpd.class.php';
+include 'inc/functions.php';
 
 $mpd = new mpd($mpdServer, $mpdPort, $mpdPassword);
 
@@ -32,8 +33,8 @@ if($mpd->connected == FALSE) {
 	}
 
 	$times = explode(':', $status['time']);
-	define('CURRENTLENGTH', date('i:s', $times[1]));
-	define('CURRENTTIME', date('i:s', $times[0]));
+	$CURRENTLENGTH = convertSecs($times[1]);
+	$CURRENTTIME = convertSecs($times[0]);
 
 	// fucking dirty
 	if($mpd->state != 'stop')	

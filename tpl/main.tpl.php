@@ -8,18 +8,19 @@
 	window.setInterval(cnt, 1000);
 </script>
 <? } ?>
-<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"><? if($status == 'paused') { echo CURRENTTIME; } ?></span><noscript><?=CURRENTTIME?></noscript>/<?=CURRENTLENGTH?>)</p>
+<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"><? if($status == 'paused') { echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2]; } ?></span><noscript><? echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2];?></noscript>/<? echo $CURRENTLENGTH[0].':'.$CURRENTLENGTH[1].':'.$CURRENTLENGTH[2];?>)</p>
 <? } ?>
 
 <div class="playlist">
 <? foreach($mpd->playlist as $song) { ?>
 	<? if($song['Artist'] != NULL && $song['Title'] != NULL) { ?>
+		<? $sngtm = convertSecs($song['Time']); $songtime = ($sngtm[0] ? $sngtm[0].':' : '').$sngtm[1].':'.$sngtm[2]; ?>
 		<? if((CURRENTID-5) == $song['Id']) { ?> 
-
+		
 		<p>
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
 			<a href="?a=start&amp;id=<?=$song['Pos']?>" name="current">
-				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span> 
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=$songtime?>)</span> 
 			</a>
 		</p>
 
@@ -29,7 +30,7 @@
             <span class="marker">&nbsp;</span>
 		    <a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
 			<a href="?a=start&amp;id=<?=$song['Pos']?>">
-				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=$songtime?>)</span>
 			</a>
 		</p>	
 
@@ -38,7 +39,7 @@
 		<p class="songLine">
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
 			<a href="?a=start&amp;id=<?=$song['Pos']?>">
-				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=date('i:s', $song['Time'])?>)</span>
+				<?=$song['Artist']?> - <?=$song['Title']?> <span class="label">(<?=$songtime?>)</span>
 			</a>
 		</p>
 
