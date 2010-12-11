@@ -1,7 +1,7 @@
 <?php
 
 /* Settings */
-$mpdServer = '192.168.1.11';
+$mpdServer = 'localhost';
 $mpdPort = '6600';
 $mpdPassword = NULL;
 $volDownSteps = 10;
