@@ -8,7 +8,7 @@
 	window.setInterval(cnt, 1000);
 </script>
 <? } ?>
-<p><span class="label">Current:</span> <?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"><? if($status == 'paused') { echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2]; } ?></span><noscript><? echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2];?></noscript>/<? echo $CURRENTLENGTH[0].':'.$CURRENTLENGTH[1].':'.$CURRENTLENGTH[2];?>)</p>
+<p><span class="label">Current:</span><?=CURRENTARTIST ?> - <?=CURRENTTRACK?> (<span id="time"><? if($status == 'paused') { echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2];} ?></span><noscript><? echo $CURRENTTIME[0].':'.$CURRENTTIME[1].':'.$CURRENTTIME[2];?></noscript><? if($CURRENTLENGTH[0] + $CURRENTLENGTH[1] + $CURRENTLENGTH[2] > 0): ?>/<? echo $CURRENTLENGTH[0] . ':' . $CURRENTLENGTH[1] . ':' . $CURRENTLENGTH[2]; ?><? endif; ?>)</p>
 <? } ?>
 
 <div class="playlist">
