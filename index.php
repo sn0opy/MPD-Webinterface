@@ -37,8 +37,11 @@ if($mpd->connected == FALSE) {
 	$CURRENTTIME = convertSecs($times[0]);
 
 	// fucking dirty
-	if($mpd->state != 'stop')	
-		echo '<script type="text/javascript">setTimeout("location.reload(true);", ' .((($times[1]-$times[0])*1000)+500). ');</script>'."\n";
+	if($mpd->state != 'stop') {
+		$refresh = ((($times[1]-$times[0])*1000)+500);
+		if($refresh < 1) { $refresh = 30500; }
+		echo '<script type="text/javascript">setTimeout("location.reload(true);", ' . $refresh . ');</script>'."\n";
+	}
 
 	if(isset($_POST['toadd'])) {
 		$object = $_POST['toadd'];
