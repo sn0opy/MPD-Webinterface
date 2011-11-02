@@ -44,6 +44,20 @@
 		</p>
 
 		<? } ?>
+	<? } elseif($song['Name'] != NULL) { ?>
+		<p class="songLine">
+			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
+			<a href="?a=start&amp;id=<?=$song['Pos']?>">
+				<?=$song['Name']?> <span class="label">(<?=$songtime?>)</span>
+			</a>
+		</p>
+	<? } elseif($song['file'] != NULL) { ?>
+		<p class="songLine">
+			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
+			<a href="?a=start&amp;id=<?=$song['Pos']?>">
+				<?=$song['file']?>
+			</a>
+		</p>
 	<? } ?>
 <? } ?>
 </div>
