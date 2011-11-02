@@ -48,7 +48,7 @@
 		<p class="songLine">
 			<a href="?a=remove&amp;id=<?=$song['Id']?>" title="Remove this song" class="removeid">x</a>
 			<a href="?a=start&amp;id=<?=$song['Pos']?>">
-				<?=$song['Name']?> <span class="label">(<?=$songtime?>)</span>
+				<?=$song['Name']?>
 			</a>
 		</p>
 	<? } elseif($song['file'] != NULL) { ?>
