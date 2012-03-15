@@ -1,4 +1,4 @@
-<?
+<?php
 
 function convertSecs($secs) {
 	if ($secs<0) 
