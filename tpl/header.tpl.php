@@ -6,7 +6,7 @@
 
 	<script type="text/javascript">
 		var VOLDOWNSTEPS = <?php echo $volDownSteps?>;
-		var VOLUPSTEPS = <? echo $volUpSteps?>;
+		var VOLUPSTEPS = <?php echo $volUpSteps?>;
 	</script>
 	
 	<script type="text/javascript" src="media/jquery.js"></script>
