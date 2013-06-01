@@ -26,6 +26,5 @@ Minimal webinterface for music player daemon
 - [http://mpd.24oz.com](http://mpd.24oz.com)
 - [http://famfamfam.com](http://famfamfam.com)
 
-## Upcoming v2 teaser
-
-![](http://cl.ly/image/2x1b3D3B192b/Screen%20Shot%202012-10-19%20at%201.29.56%20AM.png)
+## Version 2
+Please have a look at [this repository](https://github.com/sn0opy/mpdinterface2) for version 2
