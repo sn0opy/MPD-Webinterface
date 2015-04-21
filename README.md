@@ -2,7 +2,7 @@
 
 Minimal webinterface for music player daemon
 
-![](http://cl.ly/image/153W3g3n411f/2012-10-22_14-44-24.png)
+![](http://i.imgur.com/1czUoBz.png)
 
 ###  Features:
 
